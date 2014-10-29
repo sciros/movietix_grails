@@ -5,7 +5,6 @@ import grails.validation.Validateable
 @Validateable
 class PurchaseCommand {
     Integer numberOfTickets
-    BigDecimal ticketPrice
     Long showtimeId
 
     static constraints = {

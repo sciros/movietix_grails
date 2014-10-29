@@ -1,13 +1,29 @@
 package com.careworkstech.movietix
 
-class PurchaseController {
-    def submitPaymentInformation () {
+import grails.plugin.springsecurity.annotation.Secured
 
+@Secured(['ROLE_USER'])
+class PurchaseController {
+    def springSecurityService
+
+    def completePurchase (PurchaseCommand purchaseCommand) {
+        Showtime showtime = Showtime.get(purchaseCommand.showtimeId)
+        showtime.seatsAvailable -= purchaseCommand.numberOfTickets
+        showtime.ticketsSold += purchaseCommand.numberOfTickets
+        showtime.save(failOnError: true, flush: true)
+
+        Purchase purchase = new Purchase()
+        purchase.numberOfTickets = purchaseCommand.numberOfTickets
+        purchase.showtime = showtime
+        purchase.user = springSecurityService.currentUser as User
+        purchase.save(failOnError: true, flush: true)
     }
 
-    def processPayment (PurchaseCommand purchaseCommand) {
-        Showtime showtime = Showtime.get(purchaseCommand.showtimeId)
+    def startPurchaseForShowtime (Showtime showtime) {
+        [showtime: showtime]
+    }
 
-
+    def reserveTickets (PurchaseCommand purchaseCommand) {
+        [showtimeId: purchaseCommand.showtimeId, numberOfTickets: purchaseCommand.numberOfTickets]
     }
 }
