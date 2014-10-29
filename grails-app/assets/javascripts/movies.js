@@ -1,0 +1,1 @@
+$("#movies_accordion").accordion({ collapsible: true, active: false });
