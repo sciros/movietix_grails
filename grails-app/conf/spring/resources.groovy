@@ -8,7 +8,7 @@ beans = {
     // We do this purely so that backups can be generated without having to take the
     // app/DB offline. This approach is superior to using H2's AUTO_SERVER feature as it
     // works for in-memory DBs as well as file-based and has various other benefits.
-    h2Server(Server, "-tcp,-tcpPort,8043") { bean ->
+    h2Server(Server, "-tcp,-tcpAllowOthers,-tcpPort,8043") { bean ->
         bean.factoryMethod = "createTcpServer"
         bean.initMethod = "start"
         bean.destroyMethod = "stop"

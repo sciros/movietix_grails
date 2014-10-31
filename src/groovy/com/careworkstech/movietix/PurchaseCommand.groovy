@@ -8,8 +8,10 @@ class PurchaseCommand {
     Long showtimeId
 
     static constraints = {
-        numberOfTickets validator: { value, command ->
-            value <= Showtime.get(showtimeId).seatsAvailable
+        showtimeId nullable: true
+        numberOfTickets nullable: true, validator: { value, command ->
+
+            value <= Showtime.get(command.showtimeId).seatsAvailable
         }
     }
 }

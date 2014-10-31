@@ -1,3 +1,4 @@
+<%@ page import="java.text.DateFormatSymbols" %>
 <head>
     <meta name='layout' content='main'/>
     <script>
@@ -15,67 +16,64 @@
 </g:if>
 
 <p>
-    <strong>${showtime.movie.title}</strong><br/>
-    ${showtime.time} p.m. at ${showtime.theater.name}
+    You are purchasing ${numberOfTickets} ticket${numberOfTickets > 1 ? 's' : ''} to
+    ${showtime.movie.title} at ${showtime.time} p.m. at ${showtime.theater.name}.
 </p>
 
 <p>
-    <g:form action="completePurchase">
-        <g:hiddenField name="showtimeId" value="${showtimeId}"/>
-        Number of tix: <g:textField type="number" name="numberOfTickets"/>
-        <g:submitButton name="reserve-tickets" value="Continue"/>
-    </g:form>
+    Your total comes to
+    <span class="info">
+        <g:formatNumber number="${numberOfTickets * showtime.theater.ticketPrice}" type="currency" currencyCode="USD" />
+    </span>
 </p>
+
+<g:form action="completePurchase">
+    <a id="billingInfoAnchor" href="#" onclick="displayBillingInfo();">Purchase Tix</a>
+    <g:hiddenField name="numberOfTickets" value="${numberOfTickets}"/>
+    <g:hiddenField name="showtimeId" value="${showtime.id}"/>
+
+    <div id="billingInfoDiv" class="billing_info ui-corner-all" style="display:none;">
+        <span class="sub_heading">Credit Card Information</span><br/>
+        <table>
+            <tr>
+                <td>Name</td>
+                <td><g:textField id="name" name="name"/></td>
+            </tr>
+            <tr>
+                <td>CC Number</td>
+                <td><g:textField id="cc_number" name="cc_number"/></td>
+            </tr>
+            <tr>
+                <td>Expiration</td>
+                <g:set var="months" value="${new DateFormatSymbols().months}"/>
+                <td>
+                    <g:select id="date_mont" name="date_month" from="${months as List}"/>
+                    <g:select id="date_year" name="date_year" from="${2014..2024}" value="2014" />
+                </td>
+            </tr>
+        </table>
+        <br/><span class="sub_heading">Billing Address</span><br/>
+        <table>
+            <tr>
+                <td>Street Address</td>
+                <td><g:textField id="street_address" name="street_address"/></td>
+            </tr>
+            <tr>
+                <td>City</td>
+                <td><g:textField id="city" name="city"/></td>
+            </tr>
+            <tr>
+                <td>State</td>
+                <td><g:textField id="state" name="state"/></td>
+            </tr>
+            <tr>
+                <td>Zip</td>
+                <td><g:textField id="zip" name="zip"/></td>
+            </tr>
+        </table>
+        <g:submitButton name="commit" value="Complete Purchase"/>
+    </div>
+</g:form>
 </body>
 
 
-<%= form_tag finish_tix_purchase_path(@showtime), :method=>'post', :multipart => true do %>
-<%= hidden_field_tag :tix, @num_tix %>
-<p>You are purchasing <span class="info"><%= @num_tix %></span> ticket<%= @num_tix.to_i > 1 ? 's' : '' %>
-to <span class="info"><%= @movie.name %></span> at
-    <span class="info"><%= @showtime.time %> p.m.</span> at
-    <span class="info"><%= @theater.name %></span>.</p>
-
-<p>Your total comes to: <span class="info"><%= number_to_currency(@num_tix.to_i * @theater.ticket_price) %></span></p>
-
-<a id="billingInfoAnchor" href="#" onclick="displayBillingInfo();">Purchase Tix</a>
-
-<div id="billingInfoDiv" class="billing_info ui-corner-all">
-    <span class="sub_heading">Credit Card Information</span><br/>
-    <table>
-        <tr>
-            <td><%= label_tag "name", "Name" %></td>
-            <td><%= text_field_tag :name %></td>
-        </tr>
-        <tr>
-            <td><%= label_tag "cc_number", "CC Number" %></td>
-            <td><%= text_field_tag :cc_number %></td>
-        </tr>
-        <tr>
-            <td>Expiration</td>
-            <td><%=select_month(Date.today, :add_month_numbers => true) %><%= select_year(Date.today) %></td>
-        </tr>
-    </table>
-    <br/><span class="sub_heading">Billing Address</span><br/>
-    <table>
-        <tr>
-            <td><%= label_tag "street_address", "Street Address" %></td>
-            <td><%= text_field_tag :street_address %></td>
-        </tr>
-        <tr>
-            <td><%= label_tag "city", "City" %></td>
-            <td><%= text_field_tag :city %></td>
-        </tr>
-        <tr>
-            <td><%= label_tag "state", "State" %></td>
-            <td><%= text_field_tag :state %></td>
-        </tr>
-        <tr>
-            <td><%= label_tag "zip", "Zip" %></td>
-            <td><%= text_field_tag :zip %></td>
-        </tr>
-    </table>
-    <%= submit_tag 'Complete Purchase' %>
-</div>
-<% end %>
-<% end %>

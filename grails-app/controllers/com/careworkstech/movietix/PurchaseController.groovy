@@ -24,6 +24,7 @@ class PurchaseController {
     }
 
     def reserveTickets (PurchaseCommand purchaseCommand) {
-        [showtimeId: purchaseCommand.showtimeId, numberOfTickets: purchaseCommand.numberOfTickets]
+        Showtime showtime = Showtime.get(purchaseCommand.showtimeId)
+        [showtime: showtime, numberOfTickets: purchaseCommand.numberOfTickets]
     }
 }
