@@ -8,10 +8,17 @@ class PurchaseCommand {
     Long showtimeId
 
     static constraints = {
-        showtimeId nullable: true
         numberOfTickets nullable: true, validator: { value, command ->
-
-            value <= Showtime.get(command.showtimeId).seatsAvailable
+            Integer availableSeats = Showtime.get(command.showtimeId).seatsAvailable
+            if (value > availableSeats) {
+//                errors.rejectValue(
+//                        "numberOfTickets",
+//                        "purchase.numberOfTickets.validator.error",
+//                        "Only ${availableSeats} seat(s) available for this showtime."
+//                )
+                return false
+            }
+            return true
         }
     }
 }
