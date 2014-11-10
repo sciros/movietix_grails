@@ -9,7 +9,12 @@
     <div class='flash'>${flash.message}</div>
 </g:if>
 
-<form action='${request.parameterMap.get('spring-security-redirect') ? postUrl+'?spring-security-redirect='+request.parameterMap.get('spring-security-redirect').first() : postUrl}' method='POST' id='loginForm' autocomplete='off'>
+<g:set var="redirect" value="${request.parameterMap.get('spring-security-redirect') ? request.parameterMap.get('spring-security-redirect').first() : null}"/>
+<g:if test="${redirect.toString() ==~ /.+login.+/}">
+    <g:set var="redirect" value='/account'/>
+</g:if>
+
+<form action='${redirect ? postUrl+'?spring-security-redirect='+redirect : postUrl}' method='POST' id='loginForm' autocomplete='off'>
     <div class="form_container ui-corner-all">
         <table>
             <tr>

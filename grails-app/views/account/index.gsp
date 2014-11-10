@@ -3,7 +3,7 @@
 </head>
 
 <body>
-<div class="title">You got tix!</div>
+<div class="title">This is your account</div>
 
 <g:if test='${flash.message}'>
     <div class='flash'>${flash.message}</div>
