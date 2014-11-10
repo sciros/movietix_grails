@@ -15,6 +15,8 @@
     <div class='flash'>${flash.message}</div>
 </g:if>
 
+<g:renderErrors bean="purchaseCommand"/>
+
 <p>
     You are purchasing ${numberOfTickets} ticket${numberOfTickets > 1 ? 's' : ''} to
     ${showtime.movie.title} at ${showtime.time} p.m. at ${showtime.theater.name}.

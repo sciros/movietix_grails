@@ -15,6 +15,6 @@ class PurchaseCommandSpec extends Specification {
             def errors = command.validate()
 
         then: 'errors are returned'
-            assert(errors != null)
+            assert(command.errors != null)
     }
 }

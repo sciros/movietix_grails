@@ -1,6 +1,7 @@
 package com.careworkstech.movietix
 
 import grails.plugin.springsecurity.annotation.Secured
+import org.springframework.validation.ObjectError
 
 @Secured(['ROLE_USER'])
 class PurchaseController {
@@ -25,6 +26,11 @@ class PurchaseController {
 
     def reserveTickets (PurchaseCommand purchaseCommand) {
         Showtime showtime = Showtime.get(purchaseCommand.showtimeId)
-        [showtime: showtime, numberOfTickets: purchaseCommand.numberOfTickets]
+        if (purchaseCommand.hasErrors()) {
+            flash.message = "Sorry, there are only ${showtime.seatsAvailable} tickets available for this showtime."
+            redirect action: 'startPurchaseForShowtime', id: purchaseCommand.showtimeId
+        } else {
+            [showtime: showtime, numberOfTickets: purchaseCommand.numberOfTickets]
+        }
     }
 }
