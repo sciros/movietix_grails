@@ -1,7 +1,6 @@
 package com.careworkstech.movietix
 
 import grails.plugin.springsecurity.annotation.Secured
-import org.springframework.validation.ObjectError
 
 @Secured(['ROLE_USER'])
 class PurchaseController {
@@ -18,6 +17,9 @@ class PurchaseController {
         purchase.showtime = showtime
         purchase.user = springSecurityService.currentUser as User
         purchase.save(failOnError: true, flush: true)
+
+
+        [showtime: showtime, numberOfTickets: purchase.numberOfTickets]
     }
 
     def startPurchaseForShowtime (Showtime showtime) {

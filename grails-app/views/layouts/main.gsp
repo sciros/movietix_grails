@@ -14,7 +14,7 @@
 <header>
     <div class="login_container ui-corner-all ui-widget-content">
         <sec:ifLoggedIn>
-          <g:link controller="user" action="show" id="${sec.loggedInUserInfo(field: 'id')}">My Account</g:link>
+          <g:link controller="account" id="${sec.loggedInUserInfo(field: 'id')}">My Account</g:link>
           <strong>|</strong>
           <g:link controller="logout">Logout</g:link>
           <br/>
