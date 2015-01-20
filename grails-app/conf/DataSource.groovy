@@ -1,9 +1,6 @@
 dataSource {
     pooled = true
     jmxExport = true
-    driverClassName = "org.h2.Driver"
-    username = "sa"
-    password = ""
 }
 hibernate {
     cache.use_second_level_cache = true
@@ -19,13 +16,20 @@ environments {
     development {
         dataSource {
             dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
+            driverClassName = "org.h2.Driver"
             url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;"
+            username = "sa"
+            password = ""
         }
     }
     test {
         dataSource {
             dbCreate = "create-drop"
-            url = "jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000;"
+            driverClassName = "com.mysql.jdbc.Driver"
+            dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
+            url = "jdbc:mysql://localhost/movietix?useUnicode=yes&characterEncoding=UTF-8"
+            username = "developer"
+            password = "P4ssw0rd"
         }
     }
     production {
