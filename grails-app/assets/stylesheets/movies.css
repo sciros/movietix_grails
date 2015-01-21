@@ -19,3 +19,7 @@
 .accordion_heading {
     margin-left:15px;
 }
+
+#movies_accordion {
+    display: none;
+}

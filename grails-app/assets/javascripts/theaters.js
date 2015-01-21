@@ -1,1 +1,2 @@
-$("#theaters_accordion").accordion({ collapsible: true, active: false });
+$("#theaters_accordion").accordion({ collapsible: true, active: false })
+                        .css("display","block");
