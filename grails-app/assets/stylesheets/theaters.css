@@ -17,5 +17,5 @@
 }
 
 #theaters_accordion {
-    display: none;
+    visibility: hidden;
 }
