@@ -21,7 +21,7 @@
           Welcome, ${sec.loggedInUserInfo(field: 'username')}<br/>
         </sec:ifLoggedIn>
         <sec:ifNotLoggedIn>
-            <g:link controller="login" params='["spring-security-redirect" : "${request.forwardURI.substring(request.getContextPath().length())}"]'>Log In</g:link>
+            <g:link controller="login">Log In</g:link>
             <strong>|</strong>
             <g:link controller="user" action="create">Register</g:link>
         </sec:ifNotLoggedIn>

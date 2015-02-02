@@ -9,7 +9,7 @@
     <div class='flash'>${flash.message}</div>
 </g:if>
 
-<g:set var="redirect" value="${request.getAt('currentPage') ?: '/account'}"/>
+<g:set var="redirect" value="${request.session.getAt('currentPage') ?: '/account'}"/>
 
 <form action='${redirect ? postUrl+'?spring-security-redirect='+redirect : postUrl}' method='POST' id='loginForm' autocomplete='off'>
     <div class="form_container ui-corner-all">

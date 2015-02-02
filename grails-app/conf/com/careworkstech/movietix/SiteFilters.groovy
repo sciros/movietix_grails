@@ -18,7 +18,7 @@ class SiteFilters {
         notLogin(controller: '*', action: '*') {
             before = {
                 if (controllerName != 'login' && controllerName != 'assets') {
-                    def currentPage = "$request.forwardURI"
+                    def currentPage = request.forwardURI.substring(request.getContextPath().length())
                     println currentPage
                     request.session.putAt('currentPage', currentPage)
                 }
