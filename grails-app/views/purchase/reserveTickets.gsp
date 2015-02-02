@@ -30,7 +30,7 @@
 </p>
 
 <g:form action="completePurchase">
-    <a id="billingInfoAnchor" href="#" onclick="displayBillingInfo();">Purchase Tix</a>
+    <a id="billingInfoAnchor" href="#" class="button" onclick="displayBillingInfo();">Purchase Tix</a>
     <g:hiddenField name="numberOfTickets" value="${numberOfTickets}"/>
     <g:hiddenField name="showtimeId" value="${showtime.id}"/>
 

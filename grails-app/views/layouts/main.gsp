@@ -7,8 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="${assetPath(src: 'favicon.ico')}" type="image/x-icon">
     <asset:stylesheet src="application.css"/>
-    <asset:javascript src="application.js"/>
-
     <g:layoutHead/>
 </head>
 
@@ -43,6 +41,6 @@
         <g:link controller="theater" action="listAll">Theaters</g:link>
     </footer>
 </div>
-
+<asset:javascript src="application.js"/>
 </body>
 </html>
