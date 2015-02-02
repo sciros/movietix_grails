@@ -49,7 +49,7 @@
                 <td>Expiration</td>
                 <g:set var="months" value="${new DateFormatSymbols().months}"/>
                 <td>
-                    <g:select id="date_mont" name="date_month" from="${months as List}"/>
+                    <g:select id="date_month" name="date_month" from="${months as List}"/>
                     <g:select id="date_year" name="date_year" from="${2014..2024}" value="2014" />
                 </td>
             </tr>
