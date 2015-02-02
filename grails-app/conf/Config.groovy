@@ -133,7 +133,8 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
     '/movie/**':            ['permitAll'],
     '/theater/**':          ['permitAll'],
     '/showtime/**':         ['permitAll'],
-    '/user/create':         ['permitAll']
+    '/user/create':         ['permitAll'],
+    '/user/save' :          ['permitAll']
 ]
 
 grails.plugin.springsecurity.logout.postOnly = false
