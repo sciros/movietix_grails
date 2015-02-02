@@ -7,6 +7,8 @@ import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
 class UserController {
+    def springSecurityService
+
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def show(User userInstance) {
@@ -31,13 +33,9 @@ class UserController {
 
         userInstance.save flush: true
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), userInstance.id])
-                redirect userInstance
-            }
-            '*' { respond userInstance, [status: CREATED] }
-        }
+        springSecurityService.reauthenticate(userInstance.username)
+
+        redirect([controller: 'account', view: 'index'])
     }
 
     def edit(User userInstance) {
@@ -58,12 +56,8 @@ class UserController {
 
         userInstance.save flush: true
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'User.label', default: 'User'), userInstance.id])
-                redirect userInstance
-            }
-            '*' { respond userInstance, [status: OK] }
-        }
+        springSecurityService.reauthenticate(userInstance.username)
+
+        redirect([controller: 'account', view: 'index'])
     }
 }

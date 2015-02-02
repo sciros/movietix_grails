@@ -15,17 +15,17 @@
             <tr>
                 <td><label for='username'>Username</label></td>
                 <td><input type='text' class='text_' name='username' id='username'/></td>
-                <td><g:if test="${userInstance.hasErrors}"><g:renderErrors bean="${userInstance}" as="list" field="username"/></g:if></td>
+                <td><g:if test="${userInstance.hasErrors()}"><g:renderErrors bean="${userInstance}" as="list" field="username"/></g:if></td>
             </tr>
             <tr>
                 <td><label for='password'>Password</label></td>
                 <td><input type='text' class='text_' name='password' id='password'/></td>
-                <td><g:if test="${userInstance.hasErrors}"><g:renderErrors bean="${userInstance}" as="list" field="password"/></g:if></td>
+                <td><g:if test="${userInstance.hasErrors()}"><g:renderErrors bean="${userInstance}" as="list" field="password"/></g:if></td>
             </tr>
             <tr>
                 <td><label for='passwordConfirmation'>Confirm Password</label></td>
                 <td><input type='text' class='text_' name='passwordConfirmation' id='passwordConfirmation'/></td>
-                <td><g:if test="${userInstance.hasErrors}"><g:renderErrors bean="${userInstance}" as="list" field="password"/></g:if></td>
+                <td><g:if test="${userInstance.hasErrors()}"><g:renderErrors bean="${userInstance}" as="list" field="password"/></g:if></td>
             </tr>
         </table>
     </div>
