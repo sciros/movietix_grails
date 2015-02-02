@@ -33,6 +33,9 @@ class UserController {
 
         userInstance.save flush: true
 
+        def userRole = Role.findByAuthority('ROLE_USER')
+        UserRole.create userInstance, userRole
+
         springSecurityService.reauthenticate(userInstance.username)
 
         redirect([controller: 'account', view: 'index'])
