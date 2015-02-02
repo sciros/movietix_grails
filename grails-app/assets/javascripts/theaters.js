@@ -1,3 +1,3 @@
 $(function() {
-    $("#theaters_accordion").accordion({ collapsible: true, active: false }).css("visibility","visible");
+    $("#theaters_accordion").accordion({ animate: 3000, collapsible: true, active: false }).css("visibility","visible");
 });
