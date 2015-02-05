@@ -35,7 +35,11 @@ environments {
     production {
         dataSource {
             dbCreate = "create-drop"
-            url = "jdbc:h2:mem:prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000;"
+            driverClassName = "com.mysql.jdbc.Driver"
+            dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
+            url = "jdbc:mysql://localhost/movietix?useUnicode=yes&characterEncoding=UTF-8"
+            username = "developer"
+            password = "P4ssw0rd"
         }
     }
 }
