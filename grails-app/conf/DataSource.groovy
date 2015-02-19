@@ -34,12 +34,12 @@ environments {
     }
     production {
         dataSource {
-            dbCreate = "create-drop"
-            driverClassName = "com.mysql.jdbc.Driver"
+            dbCreate = 'create-drop'
+            jndiName = "java:comp/env/jdbc/MovietixDB"
+            pooled = true
+            useUnicode="yes"
+            characterEncoding="UTF-8"
             dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
-            url = "jdbc:mysql://localhost/movietix?useUnicode=yes&characterEncoding=UTF-8"
-            username = "developer"
-            password = "P4ssw0rd"
         }
     }
 }
