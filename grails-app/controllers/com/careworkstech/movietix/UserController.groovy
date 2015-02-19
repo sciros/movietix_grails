@@ -16,7 +16,11 @@ class UserController {
     }
 
     def create() {
-        respond new User(params)
+        if (springSecurityService.loggedIn) {
+            redirect([controller: 'account', view: 'index'])
+        } else {
+            respond new User(params)
+        }
     }
 
     @Transactional
