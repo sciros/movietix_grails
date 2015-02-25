@@ -1,4 +1,5 @@
 $(function() {
+    $('#theaters_accordion').css('visibility','visible');
     var headers = $('.accordion-header');
     var contentAreas = $('.ui-accordion-content').hide();
 
