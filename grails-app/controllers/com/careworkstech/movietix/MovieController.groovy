@@ -6,8 +6,7 @@ import grails.transaction.Transactional
 class MovieController {
     static defaultAction = 'listAll'
 
-    def listAll(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        [movies:Movie.list(params)]
+    def listAll() {
+        [movies:Movie.list(sort:'title')]
     }
 }
