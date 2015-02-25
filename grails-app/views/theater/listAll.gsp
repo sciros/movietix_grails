@@ -6,12 +6,14 @@
 <body>
 <div class="title">Local Theaters</div>
 <br/>
-<div id="theaters_accordion">
+<div id="theaters_accordion" class="ui-accordion ui-widget ui-helper-reset">
     <g:each status="theaterIndex" var="theater" in="${theaters}">
-        <h3 id="theater_heading_${theaterIndex+1}">
+        <h3 id="theater_heading_${theaterIndex+1}"
+            class="accordion-header ui-accordion-header ui-helper-reset ui-state-default ui-accordion-icons ui-corner-all">
+            <span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span>
             <a href="#" class="accordion_heading">${theater.name}</a>
         </h3>
-        <div>
+        <div class="theater_info ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom">
             <g:link elementId="theater_showtimes_${theaterIndex+1}"
                     class="showtime_link"
                     controller="showtime"
