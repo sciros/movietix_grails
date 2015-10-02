@@ -16,7 +16,7 @@
 
     <g:each var='purchase' in="${purchases}">
         ${purchase.numberOfTickets} to ${purchase.showtime.movie.title}
-        at ${purchase.showtime.theater.name} at ${purchase.showtime.time}
+        at ${purchase.showtime.theater.name} at ${purchase.showtime.time} (purchase id ${purchase.id})
         <br/>
     </g:each>
 </p>
