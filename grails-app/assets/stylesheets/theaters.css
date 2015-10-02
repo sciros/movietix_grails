@@ -5,9 +5,8 @@
 }
 
 .theater_info {
-    float: left;
+    width: auto;
     padding: 0 5px 0 5px;
-    width: 450px;
 }
 
 .theater_location {
