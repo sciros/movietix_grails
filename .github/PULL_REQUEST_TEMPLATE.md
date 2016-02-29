@@ -29,7 +29,6 @@ Please see the Code Review Checklist [HERE](https://liaison-intl.atlassian.net/w
 - [ ] Does the code avoid creating unnecessary large objects (such as DB connection)?
 - [ ] Scalability, compatibility, usability, etc. considered?
 
-<br/>
 \*\*[Code Smells](https://en.wikipedia.org/wiki/Code_smell) include duplication, high cyclomatic complexity, multiple return points, unjustified layers of indirection, etc.
 Check Sonar reports to get accurate report. 
 
