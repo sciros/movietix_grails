@@ -19,7 +19,7 @@ Please see the Code Review Checklist [HERE](https://liaison-intl.atlassian.net/w
 #### Focus on Code Quality
 *Does the code conform to code cleanliness standards?*
 - [ ] Does it adhere sufficiently to [SOLID](https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)) and [YAGNI](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it) principles?
-- [ ] Does it have sufficiently few, if any, [Code Smells](https://en.wikipedia.org/wiki/Code_smell)?
+- [ ] Does it have sufficiently few, if any, [Code Smells](https://en.wikipedia.org/wiki/Code_smell)\*\*?
 - [ ] Does static analysis indicate sufficiently few violations?
 
 #### Focus on Non-Functional Requirements
@@ -29,7 +29,8 @@ Please see the Code Review Checklist [HERE](https://liaison-intl.atlassian.net/w
 - [ ] Does the code avoid creating unnecessary large objects (such as DB connection)?
 - [ ] Scalability, compatibility, usability, etc. considered?
 
-* [Code Smells](https://en.wikipedia.org/wiki/Code_smell) include duplication, high cyclomatic complexity, multiple return points, unjustified layers of indirection, etc.
-* Check Sonar reports to get accurate report. 
+<br/>
+\*\*[Code Smells](https://en.wikipedia.org/wiki/Code_smell) include duplication, high cyclomatic complexity, multiple return points, unjustified layers of indirection, etc.
+Check Sonar reports to get accurate report. 
 
 ###### Pull Request Message:
