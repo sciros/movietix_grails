@@ -30,7 +30,7 @@ Please see the Code Review Checklist [HERE](https://liaison-intl.atlassian.net/w
 | - [ ] Does number of database calls in a unit makes sense? |
 | - [ ] Are database calls efficient and queries are viewed/approved by DBA? |
 | - [ ] Does the code follow stateless design? |
-| - [ ] Does the code avoid creating unnecessary large objects (such as FTP clients)? |
+| - [ ] Does the code avoid creating unnecessary large objects (such as DB connection)? |
 | - [ ] Scalability, compatibility, usability, etc. considered? |
 
 [SOLID](https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)
