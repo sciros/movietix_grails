@@ -14,7 +14,7 @@ Please see the Code Review Checklist [HERE](https://liaison-intl.atlassian.net/w
 #### Focus on Code Clarity
 - [ ] Is the code clear in its behavior and purpose?
 - [ ] Does the code conform to the established architecture (or improve it)?
-- [ ] Is there comments in the code for classes/interfaces/complex functions?
+- [ ] Are there comments in the code for classes/interfaces/complex functions?
 
 #### Focus on Code Quality
 *Does the code conform to code cleanliness standards?*
@@ -28,6 +28,8 @@ Please see the Code Review Checklist [HERE](https://liaison-intl.atlassian.net/w
 - [ ] Does the code follow stateless design?
 - [ ] Does the code avoid creating unnecessary large objects (such as DB connection)?
 - [ ] Scalability, compatibility, usability, etc. considered?
+
+- [ ] If there is a UI component to the deliverable, has a UI developer reviewed it?
 
 \*\*[Code Smells](https://en.wikipedia.org/wiki/Code_smell) include duplication, high cyclomatic complexity, multiple return points, unjustified layers of indirection, etc.
 Check Sonar reports to get accurate report. 
