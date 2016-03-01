@@ -15,6 +15,7 @@ Please see the Code Review Checklist [HERE](https://liaison-intl.atlassian.net/w
 - [ ] Is the code clear in its behavior and purpose?
 - [ ] Does the code conform to the established architecture (or improve it)?
 - [ ] Are there comments in the code for classes/interfaces/complex functions?
+- [ ] If there is a UI component, has a UI developer reviewed its design?
 
 #### Focus on Code Quality
 *Does the code conform to code cleanliness standards?*
