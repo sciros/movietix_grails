@@ -29,6 +29,7 @@ Please see the Code Review Checklist [HERE](https://liaison-intl.atlassian.net/w
 - [ ] Does the code avoid creating unnecessary large objects (such as DB connection)?
 - [ ] Scalability, compatibility, usability, etc. considered?
 
+
 - [ ] If there is a UI component to the deliverable, has a UI developer reviewed it?
 
 \*\*[Code Smells](https://en.wikipedia.org/wiki/Code_smell) include duplication, high cyclomatic complexity, multiple return points, unjustified layers of indirection, etc.
