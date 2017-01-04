@@ -6,6 +6,11 @@ import grails.transaction.Transactional
 class MovieController {
     static defaultAction = 'listAll'
 
+    //retrieve one movie
+    def show(Movie movie) {
+        [movie:movie]
+    }
+
     def listAll() {
         [movies:Movie.list(sort:'title')]
     }

@@ -4,7 +4,6 @@ import grails.buildtestdata.mixin.Build
 import spock.lang.Specification
 
 @Build([Showtime])
-
 class PurchaseCommandSpec extends Specification {
     def 'validate should enforce max value for numberOfTickets relative to seatsAvailable for showtime' () {
         given: 'showtime with 10 seats available and PurhaseCommand asking for 20 tickets'
