@@ -18,7 +18,6 @@ class PurchaseController {
         purchase.user = springSecurityService.currentUser as User
         purchase.save(failOnError: true, flush: true)
 
-
         [showtime: showtime, numberOfTickets: purchase.numberOfTickets]
     }
 

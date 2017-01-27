@@ -5,7 +5,7 @@ import grails.transaction.Transactional
 @Transactional
 class PurchaseService {
 
-    def processPurchase() {
+    def completePurchase() {
 
     }
 }
